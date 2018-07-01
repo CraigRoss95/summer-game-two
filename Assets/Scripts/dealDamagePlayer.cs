@@ -20,7 +20,7 @@ public class dealDamagePlayer : MonoBehaviour {
 		if(thing.transform.tag == "player")
 		{
 			thing.GetComponent<playerHealth>().TakeDamage(damage);
-			Debug.Log("reeeee");
+
 		}
 	}
 	

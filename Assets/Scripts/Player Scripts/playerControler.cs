@@ -89,13 +89,13 @@ public class playerControler : MonoBehaviour {
 	// moves the charicter forward
 	void Move()
 	{
-		if((transform.position.x - screenOffset.position.x >= -minAndMaxX || input.x > 0) && (transform.position.x - screenOffset.position.x <= minAndMaxX || input.x < 0))
+		if((transform.localPosition.x >= -minAndMaxX || input.x > 0) && (transform.localPosition.x <= minAndMaxX || input.x < 0))
 		{
-			transform.position = transform.position + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);
+			transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);
 		}
-		if(((transform.position.y >= -minAndMaxY  && isGrounded == false) || input.y > 0) && (transform.position.y <= minAndMaxY || input.y < 0))
+		if(((transform.localPosition.y >= -minAndMaxY   && isGrounded == false) || input.y > 0) && (transform.localPosition.y <= minAndMaxY || input.y < 0))
 		{
-			transform.position = transform.position + (new Vector3(0,input.y,0) * velocity * Time.deltaTime);
+			transform.localPosition = transform.localPosition + (new Vector3(0,input.y,0) * velocity * Time.deltaTime);
 		}
 		
 	}

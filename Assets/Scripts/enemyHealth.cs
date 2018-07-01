@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour {
 
+	public bool activated;
 	public int health;
 	public int maxHealth;
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
+		activated = false;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +25,18 @@ public class enemyHealth : MonoBehaviour {
 
 	public void TakeDamage (int damage)
 	{
-		health = health - damage;
+		if(activated == true)
+		{
+			health = health - damage;
+		}
+		
+	}
+	public void Activate()
+	{
+		activated = true;
+	}
+	public bool GetActivated()
+	{
+		return activated;
 	}
 }

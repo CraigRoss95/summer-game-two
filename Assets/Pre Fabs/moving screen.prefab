@@ -427,6 +427,10 @@ MonoBehaviour:
   screen:
     serializedVersion: 2
     m_Bits: 512
+  height: 0
+  targeter: {fileID: 0}
+  targeterTwo: {fileID: 0}
+  myCanvas: {fileID: 0}
 --- !u!114 &114324861494230942
 MonoBehaviour:
   m_ObjectHideFlags: 1

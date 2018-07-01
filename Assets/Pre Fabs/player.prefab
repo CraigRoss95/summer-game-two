@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0cd093adc0155439892e5588087653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenOffset: {fileID: 0}
   velocity: 10
   minAndMaxX: 7
   minAndMaxY: 5
@@ -234,6 +235,10 @@ MonoBehaviour:
   screen:
     serializedVersion: 2
     m_Bits: 512
+  height: 0
+  targeter: {fileID: 0}
+  targeterTwo: {fileID: 0}
+  myCanvas: {fileID: 0}
 --- !u!114 &114969140278878264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775122cff3a0a924ea7b01e1ba4d9153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 0}
   projectile: {fileID: 1240669545130862, guid: b03a1fa0682bc7144a02cc4ff4cd1929, type: 2}
   emitter: {fileID: 1570141199452992}
   cooldownTime: 0.001
