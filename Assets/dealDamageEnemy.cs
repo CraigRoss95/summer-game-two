@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveScreen : MonoBehaviour {
+public class dealDamageEnemy : MonoBehaviour {
 
-	public float speed;
+	public int damage;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,11 +13,14 @@ public class moveScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(Vector3.right * speed * Time.deltaTime);
 		
 	}
-	public void Stop()
+
+	void OnTriggerEnter(Collider thing)
 	{
-		speed = 0;
+		if(thing.transform.tag == "enemy")
+		{
+			thing.GetComponent<enemyHealth>().TakeDamage(damage);
+		}
 	}
 }

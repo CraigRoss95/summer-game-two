@@ -21,7 +21,7 @@ public class destroy : MonoBehaviour {
 
 	void OnTriggerEnter(Collider thing)
 	{
-		if(thing.tag == "bulletStopper")
+		if(thing.tag == "bulletStopper" || thing.tag == "enemy")
 		{
 			Destroy(gameObject);
 		}

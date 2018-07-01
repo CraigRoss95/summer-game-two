@@ -16,6 +16,9 @@ public class playerControler : MonoBehaviour {
 	private bool isGrounded;
 	public float height;
 	public GameObject targeter;
+	public GameObject targeterTwo;
+	private Vector2 pos;
+	public Canvas myCanvas;
 
 	
 
@@ -33,7 +36,22 @@ public class playerControler : MonoBehaviour {
 		{
 			Debug.DrawLine(cam.transform.position,hit.point);
 			cursor = hit.point;
-			targeter.transform.position = hit.point;
+			RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
+			targeter.transform.position = myCanvas.transform.TransformPoint(pos);
+			targeterTwo.transform.position = myCanvas.transform.TransformPoint(pos);
+			
+			if(hit.transform.tag == "enemy")
+			{
+				targeter.SetActive(false);
+				targeterTwo.SetActive(true);
+				Debug.Log("enemy? =  true");
+			}
+			else
+			{
+				targeter.SetActive(true);
+				targeterTwo.SetActive(false);
+				Debug.Log("enemy? =  false");
+			}
 
 		}
 		

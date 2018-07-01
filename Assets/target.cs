@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class takeDammage : MonoBehaviour {
+public class target : MonoBehaviour {
 
 	public string dammageTag;
 	public GameObject screen;
@@ -19,14 +19,5 @@ public class takeDammage : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
-	
-	void OnTriggerEnter(Collider hit)
-	{
-		if (hit.tag == dammageTag)
-		{
-			Destroy(hit.gameObject);
-			gameObject.GetComponent<enemyHealth>().TakeDamage(1);
-		}
 	}
 }
