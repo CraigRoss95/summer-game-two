@@ -19,6 +19,11 @@ public class playerControler : MonoBehaviour {
 	public GameObject targeterTwo;
 	private Vector2 pos;
 	public Canvas myCanvas;
+	public float speedUpFactor;
+	public float SlowDownFactor;
+	public float maxSpeed;
+	public float minSpeed;
+	public bool diagonal;
 
 	
 
@@ -31,34 +36,11 @@ public class playerControler : MonoBehaviour {
 	{	
 		FindIsGrounded();
 		GetInput();
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if(Physics.Raycast(ray, out hit, 100, screen))
-		{
-			Debug.DrawLine(cam.transform.position,hit.point);
-			cursor = hit.point;
-			RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
-			targeter.transform.position = myCanvas.transform.TransformPoint(pos);
-			targeterTwo.transform.position = myCanvas.transform.TransformPoint(pos);
-			
-			if(hit.transform.tag == "enemy")
-			{
-				targeter.SetActive(false);
-				targeterTwo.SetActive(true);
-				Debug.Log("enemy? =  true");
-			}
-			else
-			{
-				targeter.SetActive(true);
-				targeterTwo.SetActive(false);
-				Debug.Log("enemy? =  false");
-			}
 
-		}
 		
 
 		Move();
 	
-		transform.LookAt(cursor);
 
 
 	}
@@ -97,6 +79,19 @@ public class playerControler : MonoBehaviour {
 		{
 			transform.localPosition = transform.localPosition + (new Vector3(0,input.y,0) * velocity * Time.deltaTime);
 		}
+
+		
+		velocity = Mathf.Clamp(velocity,minSpeed,maxSpeed);
+		if(input.x != 0 && input.y != 0 && diagonal == false)
+		{
+			diagonal = true;
+
+		}
+		else 
+		{
+			diagonal = false;
+		}
+		Debug.Log("velocity = " + velocity);
 		
 	}
 	// finds which way is forward
