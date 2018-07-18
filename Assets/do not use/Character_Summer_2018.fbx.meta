@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: 74dcf9940a76df849ac63b4b3b473c7c
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Ball_L
+    100006: Ball_R
+    100008: Character_Geisha
+    100010: Character_Ninja
+    100012: Character_Samurai_Grunt
+    100014: Character_Samurai_Warrior
+    100016: Character_Sensei
+    100018: //RootNode
+    100020: Character_Village_Woman
+    100022: Clavicle_L
+    100024: Clavicle_R
+    100026: Elbow_L
+    100028: Elbow_R
+    100030: Eyebrows
+    100032: Eyes
+    100034: Finger_01
+    100036: Finger_01 1
+    100038: Finger_02
+    100040: Finger_02 1
+    100042: Finger_03
+    100044: Finger_03 1
+    100046: Finger_04
+    100048: Finger_04 1
+    100050: group
+    100052: Hand_L
+    100054: Hand_R
+    100056: Head
+    100058: Hips
+    100060: IndexFinger_01
+    100062: IndexFinger_01 1
+    100064: IndexFinger_02
+    100066: IndexFinger_02 1
+    100068: IndexFinger_03
+    100070: IndexFinger_03 1
+    100072: IndexFinger_04
+    100074: IndexFinger_04 1
+    100076: Item_Basket_Rice_01
+    100078: Item_CoinBag
+    100080: Item_Dagger
+    100082: Item_Pouch
+    100084: Item_Samurai_HouseFlag
+    100086: Item_Sword
+    100088: Item_SwordHolder
+    100090: Item_SwordSheath
+    100092: Item_WarriorSholderArmor
+    100094: Item_WarriorSholderArmor 1
+    100096: Item_WaterBladder_01
+    100098: Item_WaterCanteen
+    100100: left
+    100102: LowerLeg_L
+    100104: LowerLeg_R
+    100106: Neck
+    100108: Object001
+    100110: pasted__Character_Sensei
+    100112: Root
+    100114: Shoulder_L
+    100116: Shoulder_R
+    100118: SM_Wep_Odachi_01
+    100120: Spine_01
+    100122: Spine_02
+    100124: Spine_03
+    100126: Thumb_01
+    100128: Thumb_01 1
+    100130: Thumb_02
+    100132: Thumb_02 1
+    100134: Thumb_03
+    100136: Thumb_03 1
+    100138: Toes_L
+    100140: Toes_R
+    100142: UpperLeg_L
+    100144: UpperLeg_R
+    100146: Wep_Odachi_Covered_01
+    100148: Wep_Tanto_Covered_01
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Ball_L
+    400006: Ball_R
+    400008: Character_Geisha
+    400010: Character_Ninja
+    400012: Character_Samurai_Grunt
+    400014: Character_Samurai_Warrior
+    400016: Character_Sensei
+    400018: //RootNode
+    400020: Character_Village_Woman
+    400022: Clavicle_L
+    400024: Clavicle_R
+    400026: Elbow_L
+    400028: Elbow_R
+    400030: Eyebrows
+    400032: Eyes
+    400034: Finger_01
+    400036: Finger_01 1
+    400038: Finger_02
+    400040: Finger_02 1
+    400042: Finger_03
+    400044: Finger_03 1
+    400046: Finger_04
+    400048: Finger_04 1
+    400050: group
+    400052: Hand_L
+    400054: Hand_R
+    400056: Head
+    400058: Hips
+    400060: IndexFinger_01
+    400062: IndexFinger_01 1
+    400064: IndexFinger_02
+    400066: IndexFinger_02 1
+    400068: IndexFinger_03
+    400070: IndexFinger_03 1
+    400072: IndexFinger_04
+    400074: IndexFinger_04 1
+    400076: Item_Basket_Rice_01
+    400078: Item_CoinBag
+    400080: Item_Dagger
+    400082: Item_Pouch
+    400084: Item_Samurai_HouseFlag
+    400086: Item_Sword
+    400088: Item_SwordHolder
+    400090: Item_SwordSheath
+    400092: Item_WarriorSholderArmor
+    400094: Item_WarriorSholderArmor 1
+    400096: Item_WaterBladder_01
+    400098: Item_WaterCanteen
+    400100: left
+    400102: LowerLeg_L
+    400104: LowerLeg_R
+    400106: Neck
+    400108: Object001
+    400110: pasted__Character_Sensei
+    400112: Root
+    400114: Shoulder_L
+    400116: Shoulder_R
+    400118: SM_Wep_Odachi_01
+    400120: Spine_01
+    400122: Spine_02
+    400124: Spine_03
+    400126: Thumb_01
+    400128: Thumb_01 1
+    400130: Thumb_02
+    400132: Thumb_02 1
+    400134: Thumb_03
+    400136: Thumb_03 1
+    400138: Toes_L
+    400140: Toes_R
+    400142: UpperLeg_L
+    400144: UpperLeg_R
+    400146: Wep_Odachi_Covered_01
+    400148: Wep_Tanto_Covered_01
+    2000000: left
+    2100000: Character_Mat1
+    2100002: Character_Mat
+    2100004: lambert355
+    2100006: pasted__Character_Mat
+    2300000: Item_Basket_Rice_01
+    2300002: Item_CoinBag
+    2300004: Item_Dagger
+    2300006: Item_Pouch
+    2300008: Item_Samurai_HouseFlag
+    2300010: Item_Sword
+    2300012: Item_SwordHolder
+    2300014: Item_SwordSheath
+    2300016: Item_WarriorSholderArmor
+    2300018: Item_WarriorSholderArmor 1
+    2300020: Item_WaterBladder_01
+    2300022: Item_WaterCanteen
+    2300024: Object001
+    2300026: SM_Wep_Odachi_01
+    2300028: Wep_Odachi_Covered_01
+    2300030: Wep_Tanto_Covered_01
+    3300000: Item_Basket_Rice_01
+    3300002: Item_CoinBag
+    3300004: Item_Dagger
+    3300006: Item_Pouch
+    3300008: Item_Samurai_HouseFlag
+    3300010: Item_Sword
+    3300012: Item_SwordHolder
+    3300014: Item_SwordSheath
+    3300016: Item_WarriorSholderArmor
+    3300018: Item_WarriorSholderArmor 1
+    3300020: Item_WaterBladder_01
+    3300022: Item_WaterCanteen
+    3300024: Object001
+    3300026: SM_Wep_Odachi_01
+    3300028: Wep_Odachi_Covered_01
+    3300030: Wep_Tanto_Covered_01
+    4300000: Object001
+    4300002: Item_WarriorSholderArmor
+    4300004: Item_WarriorSholderArmor
+    4300006: Item_Sword
+    4300008: Item_Samurai_HouseFlag
+    4300010: Item_Basket_Rice_01
+    4300012: Item_SwordHolder
+    4300014: SM_Wep_Odachi_01
+    4300016: Item_WaterCanteen
+    4300018: Item_WaterBladder_01
+    4300020: Wep_Odachi_Covered_01
+    4300022: Wep_Tanto_Covered_01
+    4300024: Item_Pouch
+    4300026: Item_SwordSheath
+    4300028: Item_Dagger
+    4300030: Item_CoinBag
+    4300032: Character_Geisha
+    4300034: Character_Samurai_Warrior
+    4300036: Character_Village_Woman
+    4300038: Character_Sensei
+    4300040: Character_Ninja
+    4300042: Character_Samurai_Grunt
+    4300044: pasted__Character_Sensei
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Character_Geisha
+    13700002: Character_Ninja
+    13700004: Character_Samurai_Grunt
+    13700006: Character_Samurai_Warrior
+    13700008: Character_Sensei
+    13700010: Character_Village_Woman
+    13700012: pasted__Character_Sensei
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
