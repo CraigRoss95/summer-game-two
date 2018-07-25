@@ -12,7 +12,7 @@ public class heatSeaker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 			screen = GameObject.Find("moving screen");
-			player = GameObject.Find("player");
+			player = GameObject.Find("movement box");
 	}
 	
 	// Update is called once per frame

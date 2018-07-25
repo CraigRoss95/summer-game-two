@@ -33,7 +33,7 @@ public class shoot : MonoBehaviour {
 			if(Physics.Raycast(ray, out hit, 100, screenLayerMask))
 		{
 			Debug.DrawLine(cam.transform.position,hit.point);
-			cursor = hit.point;
+			cursor = new Vector3 (hit.point.x,hit.point.y,0);
 			RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
 			targeter.transform.position = myCanvas.transform.TransformPoint(pos);
 			targeterTwo.transform.position = myCanvas.transform.TransformPoint(pos);
@@ -53,6 +53,7 @@ public class shoot : MonoBehaviour {
 
 		}
 		transform.LookAt(cursor);
+		
 		if(onCooldown == false && Input.GetButton("Fire1"))
 		{
 			clone = Instantiate(projectile, emitter.transform.position,emitter.transform.rotation);

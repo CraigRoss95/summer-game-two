@@ -25,7 +25,7 @@ public class shooter : MonoBehaviour {
 			onCooldown = false;
 			inPosition = false;
 			screen = GameObject.Find("moving screen");
-			player = GameObject.Find("player");
+			player = GameObject.Find("movement box");
 	}
 	
 	// Update is called once per frame
