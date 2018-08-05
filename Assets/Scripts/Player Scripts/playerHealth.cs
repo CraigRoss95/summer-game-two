@@ -15,8 +15,8 @@ public int currHealth;
 	{
 		if (currHealth <= 0)
 		{
-			gameObject.SetActive(false);
-			gameObject.transform.parent.GetComponent<moveScreen>().Stop();
+			gameObject.transform.parent.gameObject.SetActive(false);
+			gameObject.transform.parent.transform.parent.GetComponent<moveScreen>().Stop();
 		}	
 	}
 	public void TakeDamage(int damage)

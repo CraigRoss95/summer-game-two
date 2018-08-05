@@ -19,8 +19,11 @@ public class dealDamagePlayer : MonoBehaviour {
 	{
 		if(thing.transform.tag == "player")
 		{
+			if(thing.transform.name == "player hitbox")
+			{
 			thing.GetComponent<playerHealth>().TakeDamage(damage);
-
+			Destroy(gameObject);
+			}
 		}
 	}
 	
