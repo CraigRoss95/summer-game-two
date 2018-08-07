@@ -35,7 +35,7 @@ public float cooldownTime;
 		if(Input.GetButtonDown("melee") && onCooldown == false && meleeing == false)
 		{
 			meleeing = true;
-			Invoke("SwordOutInvoke", 0.5f);
+			Invoke("SwordOutInvoke", swordOutTime);
 		}
 		
 	}
@@ -43,7 +43,7 @@ public float cooldownTime;
 	{
 		meleeing = false;
 		onCooldown = true;
-		Invoke("TakeOffCooldown", 0.5f);
+		Invoke("TakeOffCooldown", cooldownTime);
 	}
 
 	void TakeOffCooldown()

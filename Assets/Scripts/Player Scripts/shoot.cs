@@ -59,8 +59,8 @@ public class shoot : MonoBehaviour {
 		if(onCooldown == false && Input.GetButton("Fire1"))
 		{
 			float rand = Random.Range((-1 * acuracyDebuff), acuracyDebuff)/ 100.0f;
-			clone = Instantiate(projectile, emitter.transform.position, new Quaternion (emitter.transform.rotation.x + rand, emitter.transform.rotation.y,emitter.transform.rotation.z,emitter.transform.rotation.w));
-			clone.GetComponent<Rigidbody>().AddForce((transform.forward + new Vector3(0,rand,0)) * speed);
+			clone = Instantiate(projectile, emitter.transform.position + new Vector3(0,rand,0), emitter.transform.rotation);
+			clone.GetComponent<Rigidbody>().AddForce((transform.forward * speed));
 			clone.transform.parent = screen.transform;
 			onCooldown = true;
 			Invoke("PutOffCoolDown", cooldownTime);
