@@ -21,6 +21,7 @@ public class shootLazer : MonoBehaviour {
 	public GameObject lazer;
 	public LayerMask shootLayer;
 	public int damage;
+	public int acuracyDebuff;
 
 
 
@@ -57,16 +58,19 @@ public class shootLazer : MonoBehaviour {
 		transform.LookAt(cursor);
 		
 		if(onCooldown == false && Input.GetButton("Fire1"))
-		{
-			if (Physics.Raycast(emitter.transform.position,emitter.transform.forward,out lazerHit,100,shootLayer))
+		{	float rand = Random.Range((-1 * acuracyDebuff), acuracyDebuff)/ 100.0f;
+			Debug.Log("rand = " + rand);
+			//rand = 0;
+			if (Physics.Raycast(emitter.transform.position,emitter.transform.forward + new Vector3 (0,rand,0),out lazerHit,100,shootLayer))
 			{
 				Debug.DrawLine(emitter.transform.position, lazerHit.point, Color.red);
-			clone = Instantiate(lazer);
-			clone.GetComponent<LineRenderer>().SetPosition(0, emitter.transform.position);
-			clone.GetComponent<LineRenderer>().SetPosition(1, lazerHit.point);
-			if(lazerHit.transform.gameObject.tag == "enemy")
+				clone = Instantiate(lazer);
+				clone.GetComponent<LineRenderer>().SetPosition(0, emitter.transform.position);
+				clone.GetComponent<LineRenderer>().SetPosition(1, lazerHit.point);
+
+				if(lazerHit.transform.gameObject.tag == "enemy")
 				{
-				lazerHit.transform.gameObject.GetComponent<enemyHealth>().TakeDamage(damage);
+					lazerHit.transform.gameObject.GetComponent<enemyHealth>().TakeDamage(damage);
 				}
 				
 			}
@@ -74,7 +78,7 @@ public class shootLazer : MonoBehaviour {
 			{
 			clone = Instantiate(lazer);
 			clone.GetComponent<LineRenderer>().SetPosition(0, emitter.transform.position);
-			clone.GetComponent<LineRenderer>().SetPosition(1, emitter.transform.position + transform.forward * 100);
+			clone.GetComponent<LineRenderer>().SetPosition(1, emitter.transform.position + (transform.forward + new Vector3 (0,rand,0)) * 100);
 			}
 			//clone.transform.parent = screen.transform;
 			onCooldown = true;
