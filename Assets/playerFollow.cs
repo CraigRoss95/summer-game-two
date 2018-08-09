@@ -26,6 +26,7 @@ private bool ground;
 			}
 			transform.position = Vector3.Lerp(transform.position,new Vector3 (target.transform.position.x,target.transform.position.y + groundYOffset, target.transform.position.z), Time.deltaTime * followSpeed * followSpeedFactor);
 			
+			
 		}
 		else
 		{

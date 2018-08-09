@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour {
 public int maxHealth;
@@ -17,6 +18,7 @@ public int currHealth;
 		{
 			gameObject.transform.parent.gameObject.SetActive(false);
 			gameObject.transform.parent.transform.parent.GetComponent<moveScreen>().Stop();
+			SceneManager.LoadScene("startScreen");
 		}	
 	}
 	public void TakeDamage(int damage)

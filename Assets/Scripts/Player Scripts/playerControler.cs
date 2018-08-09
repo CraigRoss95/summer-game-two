@@ -51,6 +51,10 @@ public class playerControler : MonoBehaviour {
 			{
 				isGrounded = true;
 				playerAnimations.Play("running");
+				if(hit.distance < height/2.0f)
+					{
+						gameObject.transform.Translate(Vector3.up * 0.1f);
+					}
 			}
 		}
 		else
