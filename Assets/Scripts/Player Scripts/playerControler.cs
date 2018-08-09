@@ -37,13 +37,11 @@ public class playerControler : MonoBehaviour {
 	{	
 		FindIsGrounded();
 		GetInput();
-
-		
-
 		Move();
-	
-
-
+	}
+	public bool GetIsGrounded()
+	{
+		return isGrounded;
 	}
 	void FindIsGrounded()
 	{
