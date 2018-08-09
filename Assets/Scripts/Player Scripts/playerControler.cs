@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerControler : MonoBehaviour {
 	
+	public Animator playerAnimations;
 	public Transform screenOffset;
 	public float velocity;
 	public float minAndMaxX;
@@ -51,10 +52,12 @@ public class playerControler : MonoBehaviour {
 			if (hit.transform.tag == "ground")
 			{
 				isGrounded = true;
+				playerAnimations.Play("running");
 			}
 		}
 		else
 		{
+			playerAnimations.Play("floating");
 			isGrounded = false;
 		}
 		Debug.Log("is grounded = " + isGrounded);
