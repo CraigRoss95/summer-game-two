@@ -20,13 +20,14 @@ public class shoot : MonoBehaviour {
 	public LayerMask screenLayerMask;
 	private Vector3 cursor;
 	public float acuracyDebuff;
+
 	
 
 
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -53,9 +54,10 @@ public class shoot : MonoBehaviour {
 				Debug.Log("enemy? =  false");
 			}
 
+Debug.Log("log " + 	Vector3.Distance(hit.point, transform.position));
 		}
 		transform.LookAt(cursor);
-		
+		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y,0);
 		if(onCooldown == false && Input.GetButton("Fire1"))
 		{
 			float rand = Random.Range((-1 * acuracyDebuff), acuracyDebuff)/ 100.0f;
