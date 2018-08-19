@@ -41,8 +41,6 @@ private GameObject player;
 			else
 			{
 				//transform.LookAt(player.transform);
-				float hold = transform.rotation.y;
-				float holdtoo = transform.rotation.z;
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, rotator.transform.rotation, turningSpeed * Time.deltaTime);
 
 				//Debug.Log("logging " + hold);

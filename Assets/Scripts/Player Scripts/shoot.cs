@@ -45,16 +45,16 @@ public class shoot : MonoBehaviour {
 			{
 				targeter.SetActive(false);
 				targeterTwo.SetActive(true);
-				Debug.Log("enemy? =  true");
+				//Debug.Log("enemy? =  true");
 			}
 			else
 			{
 				targeter.SetActive(true);
 				targeterTwo.SetActive(false);
-				Debug.Log("enemy? =  false");
+				//Debug.Log("enemy? =  false");
 			}
 
-Debug.Log("log " + 	Vector3.Distance(hit.point, transform.position));
+		//Debug.Log("log " + 	Vector3.Distance(hit.point, transform.position));
 		}
 		transform.LookAt(cursor);
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y,0);

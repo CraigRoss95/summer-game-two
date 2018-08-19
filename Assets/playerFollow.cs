@@ -17,7 +17,7 @@ private bool ground;
 	
 	// Update is called once per frame
 	void Update () {
-		if(target.gameObject.GetComponent<playerControler>().GetIsGrounded() == true)
+		if(target.gameObject.GetComponent<playerControler>().GetIsGrounded() == true || target.gameObject.GetComponent<playerControler>().notFlying() == true)
 		{
 			if (ground == false)
 			{

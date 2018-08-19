@@ -25,19 +25,31 @@ public class playerControler : MonoBehaviour {
 	public float maxSpeed;
 	public float minSpeed;
 	public bool diagonal;
+	private bool jumping;
+	private bool falling;
+	public float jumpingTime;
+	public float jumpSpeed;
+	private float tempJumpSpeed;
+	public float jumpingDecayRate;
+	
 
 	
 
 	void Start()
 	{
 		isGrounded = false;
+		jumping = false;
+		falling = false;
+		tempJumpSpeed = jumpSpeed;
 	}
 	
 	void LateUpdate()
 	{	
 		FindIsGrounded();
 		GetInput();
+		Jump();
 		Move();
+		StartFlight();
 	}
 	public bool GetIsGrounded()
 	{
@@ -50,6 +62,7 @@ public class playerControler : MonoBehaviour {
 			if (hit.transform.tag == "ground")
 			{
 				isGrounded = true;
+				CancelInvoke("SetFalling");
 				playerAnimations.Play("running");
 				if(hit.distance < height/2.0f)
 					{
@@ -59,7 +72,11 @@ public class playerControler : MonoBehaviour {
 		}
 		else
 		{
-			playerAnimations.Play("floating");
+			if(jumping == false && falling == false)
+			{
+				playerAnimations.Play("floating");
+			}
+			
 			isGrounded = false;
 		}
 		Debug.Log("is grounded = " + isGrounded);
@@ -96,8 +113,77 @@ public class playerControler : MonoBehaviour {
 		{
 			diagonal = false;
 		}
-		Debug.Log("velocity = " + velocity);
+	//	Debug.Log("velocity = " + velocity);
 		
 	}
 	// finds which way is forward
+	void Jump()
+	{Debug.Log ("tempjumpspeed = " + tempJumpSpeed);
+		if(Input.GetButtonDown("jump") && isGrounded == true)
+		{	
+			
+			tempJumpSpeed = jumpSpeed;
+		//	Debug.Log("you jumped");
+			jumping = true;
+			Invoke("SetFalling", jumpingTime);
+			
+		}
+		if (jumping == true)
+		{
+			if (Input.GetButton("jump"))
+			{ 
+			transform.localPosition = transform.localPosition + (new Vector3(0,1.0f,0) * tempJumpSpeed * Time.deltaTime);
+			tempJumpSpeed = tempJumpSpeed - Time.deltaTime * jumpingDecayRate;
+			tempJumpSpeed = Mathf.Clamp(tempJumpSpeed,0,jumpSpeed);
+			}
+			else
+			{
+				jumping = false;
+				falling = true;
+			}
+		}
+		if (falling == true)
+		{
+			if(isGrounded == false)
+			{
+				tempJumpSpeed = tempJumpSpeed + Time.deltaTime * jumpingDecayRate;
+				tempJumpSpeed = Mathf.Clamp(tempJumpSpeed,0,jumpSpeed);
+					transform.localPosition = transform.localPosition + (new Vector3(0,-1.0f,0) * tempJumpSpeed * Time.deltaTime);
+			}
+			else
+			{
+				falling = false;
+			}
+		}
+		
+
+	}
+
+	void SetFalling()
+	{
+		jumping = false;
+		falling = true;
+	}
+	
+	void StartFlight()
+	{
+		if (Input.GetAxisRaw("Vertical") != 0 )
+		{
+			falling = false;
+			jumping = false;
+			CancelInvoke("SetFalling");
+		}
+		
+	}
+	public bool notFlying()
+	{
+		if (jumping == true || falling == true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
