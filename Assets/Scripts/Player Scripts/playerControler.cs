@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerControler : MonoBehaviour {
-	
+	public GameObject bottemPlate;
 	public Animator playerAnimations;
 	public Transform screenOffset;
 	public float velocity;
@@ -13,6 +13,7 @@ public class playerControler : MonoBehaviour {
 	public Transform cam;
 	private RaycastHit hit;
 	public LayerMask screen;
+	public LayerMask ground;
 	private Vector3 cursor;
 	private bool isGrounded;
 	public float height;
@@ -31,6 +32,7 @@ public class playerControler : MonoBehaviour {
 	public float jumpSpeed;
 	private float tempJumpSpeed;
 	public float jumpingDecayRate;
+	private bool flying;
 	
 
 	
@@ -40,7 +42,9 @@ public class playerControler : MonoBehaviour {
 		isGrounded = false;
 		jumping = false;
 		falling = false;
-		tempJumpSpeed = jumpSpeed;
+		tempJumpSpeed = 0;
+		falling = true;
+		flying = false;
 	}
 	
 	void LateUpdate()
@@ -57,24 +61,33 @@ public class playerControler : MonoBehaviour {
 	}
 	void FindIsGrounded()
 	{
-		if(Physics.Raycast(gameObject.transform.position,Vector3.down,out hit,height/2.0f + 0.1f))
+		if(bottemPlate.GetComponent<touchingGround>().GetTouching() == true)
 		{
-			if (hit.transform.tag == "ground")
+			tempJumpSpeed = 5.0f;
+	
+			flying = false;	
+			isGrounded = true;
+			CancelInvoke("SetFalling");
+			playerAnimations.Play("running");
+			if (Physics.Raycast(gameObject.transform.position,Vector3.down,out hit,height/2.0f + 0.1f, ground))
 			{
-				isGrounded = true;
-				CancelInvoke("SetFalling");
-				playerAnimations.Play("running");
 				if(hit.distance < height/2.0f)
 					{
+						falling = false;
 						gameObject.transform.Translate(Vector3.up * 0.1f);
 					}
 			}
+			
 		}
 		else
 		{
 			if(jumping == false && falling == false)
 			{
 				playerAnimations.Play("floating");
+			}
+			if(flying == false)
+			{
+				falling = true;
 			}
 			
 			isGrounded = false;
@@ -118,7 +131,8 @@ public class playerControler : MonoBehaviour {
 	}
 	// finds which way is forward
 	void Jump()
-	{Debug.Log ("tempjumpspeed = " + tempJumpSpeed);
+	{
+		//Debug.Log ("tempjumpspeed = " + tempJumpSpeed);
 		if(Input.GetButtonDown("jump") && isGrounded == true)
 		{	
 			
@@ -138,17 +152,22 @@ public class playerControler : MonoBehaviour {
 			}
 			else
 			{
-				jumping = false;
-				falling = true;
+				if (jumping == true)
+				{
+					tempJumpSpeed = 5.0f;
+					jumping = false;
+					falling = true;	
+				}
+				
 			}
 		}
-		if (falling == true)
+		if (falling == true && flying == false && jumping == false)
 		{
 			if(isGrounded == false)
 			{
-				tempJumpSpeed = tempJumpSpeed + Time.deltaTime * jumpingDecayRate;
-				tempJumpSpeed = Mathf.Clamp(tempJumpSpeed,0,jumpSpeed);
-					transform.localPosition = transform.localPosition + (new Vector3(0,-1.0f,0) * tempJumpSpeed * Time.deltaTime);
+			transform.localPosition = transform.localPosition + (new Vector3(0,-1.0f,0) * tempJumpSpeed * Time.deltaTime);
+			tempJumpSpeed = tempJumpSpeed + Time.deltaTime * jumpingDecayRate;
+			tempJumpSpeed = Mathf.Clamp(tempJumpSpeed,0,jumpSpeed);
 			}
 			else
 			{
@@ -163,12 +182,14 @@ public class playerControler : MonoBehaviour {
 	{
 		jumping = false;
 		falling = true;
+		tempJumpSpeed = 5.0f;
 	}
 	
 	void StartFlight()
 	{
 		if (Input.GetAxisRaw("Vertical") != 0 )
 		{
+			flying = true;
 			falling = false;
 			jumping = false;
 			CancelInvoke("SetFalling");
