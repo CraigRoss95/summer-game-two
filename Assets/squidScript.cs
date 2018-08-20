@@ -28,6 +28,8 @@ private GameObject player;
 	// Update is called once per frame
 	void Update () 
 	{
+		if (GetComponent<enemyHealth>().GetActivated() == true)
+		{
 		gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,0);
 
 		rotator.transform.LookAt(player.transform);
@@ -46,6 +48,7 @@ private GameObject player;
 				//Debug.Log("logging " + hold);
 			}
 			
+		}
 		}
 		
 	}

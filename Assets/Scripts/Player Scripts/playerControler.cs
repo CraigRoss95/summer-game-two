@@ -33,6 +33,9 @@ public class playerControler : MonoBehaviour {
 	private float tempJumpSpeed;
 	public float jumpingDecayRate;
 	private bool flying;
+	public GameObject frontPlate;
+	public GameObject backPlate;
+	public GameObject topPlate;
 	
 
 	
@@ -47,13 +50,14 @@ public class playerControler : MonoBehaviour {
 		flying = false;
 	}
 	
-	void LateUpdate()
+	void Update()
 	{	
 		FindIsGrounded();
 		GetInput();
 		Jump();
 		Move();
 		StartFlight();
+		Push();
 	}
 	public bool GetIsGrounded()
 	{
@@ -69,15 +73,6 @@ public class playerControler : MonoBehaviour {
 			isGrounded = true;
 			CancelInvoke("SetFalling");
 			playerAnimations.Play("running");
-			if (Physics.Raycast(gameObject.transform.position,Vector3.down,out hit,height/2.0f + 0.1f, ground))
-			{
-				if(hit.distance < height/2.0f)
-					{
-						falling = false;
-						gameObject.transform.Translate(Vector3.up * 0.1f);
-					}
-			}
-			
 		}
 		else
 		{
@@ -108,7 +103,11 @@ public class playerControler : MonoBehaviour {
 	{
 		if((transform.localPosition.x >= -minAndMaxX || input.x > 0) && (transform.localPosition.x <= minAndMaxX || input.x < 0))
 		{
-			transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);
+			if (frontPlate.GetComponent<touchingGround>().GetTouching() == false && backPlate.GetComponent<touchingGround>().GetTouching() == false)
+			{
+				transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);
+			}
+			
 		}
 		if(((transform.localPosition.y >= -minAndMaxY   && isGrounded == false) || input.y > 0) && (transform.localPosition.y <= minAndMaxY || input.y < 0))
 		{
@@ -132,6 +131,11 @@ public class playerControler : MonoBehaviour {
 	// finds which way is forward
 	void Jump()
 	{
+		if (Input.GetButtonDown("jump") && flying == true)
+		{
+			flying = false;
+			jumpSpeed = 5.0f;
+		}
 		//Debug.Log ("tempjumpspeed = " + tempJumpSpeed);
 		if(Input.GetButtonDown("jump") && isGrounded == true)
 		{	
@@ -205,6 +209,29 @@ public class playerControler : MonoBehaviour {
 		else
 		{
 			return false;
+		}
+	}
+	void Push()
+	{
+		if (Physics.Raycast(gameObject.transform.position,Vector3.down,out hit,height/2.0f + 0.1f, ground))
+			{
+				if(hit.distance < height/2.0f)
+					{
+						falling = false;
+						gameObject.transform.Translate(Vector3.up * 0.1f);
+					}
+			}
+		if ( frontPlate.GetComponent<touchingGround>().GetTouching() == true)
+		{
+			gameObject.transform.Translate(Vector3.left* 0.2f);
+		}
+		if ( backPlate.GetComponent<touchingGround>().GetTouching() == true)
+		{
+			gameObject.transform.Translate(Vector3.right* 0.2f);
+		}
+		if ( topPlate.GetComponent<touchingGround>().GetTouching() == true)
+		{
+			gameObject.transform.Translate(Vector3.down* 0.2f);
 		}
 	}
 }

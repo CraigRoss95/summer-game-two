@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54384867946139406}
   - component: {fileID: 114276472544502730}
   - component: {fileID: 114765376762631270}
+  - component: {fileID: 114776884261435714}
   m_Layer: 10
   m_Name: test boss
   m_TagString: enemy
@@ -98,7 +99,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -114,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 1
-  health: 100
-  maxHealth: 100
+  health: 150
+  maxHealth: 150
 --- !u!114 &114765376762631270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,11 +128,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b1df6321fd81a43a9c8cbd19ca04a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 1
-  time: 1
+  distance: -5
+  time: 3
   bullet: {fileID: 1916658037124304, guid: 5c0cc79869746c44698ba9e833992c3b, type: 2}
   cooldownTime: 2
   bulletSpeed: 500
+--- !u!114 &114776884261435714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100161952327678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2ffdfd796ba19428fdfc35ad67e7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHP: {fileID: 0}
+  HPText: {fileID: 0}
 --- !u!135 &135716442097217218
 SphereCollider:
   m_ObjectHideFlags: 1
