@@ -17,16 +17,23 @@ public float cooldownTime;
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("dodge") && onCooldown == false && dodgeing == false)
+		if (Input.GetButtonDown("dodge") && onCooldown == false && dodgeing == false && gameObject.GetComponent<playerHealth>().GetInvinsable() == true)
 		{
 			Dodge();
+		}
+		if(gameObject.GetComponent<playerHealth>().GetInvinsable() == true)
+		{
+			gameObject.GetComponent<BoxCollider>().enabled = false;
+		}
+		else{
+			gameObject.GetComponent<BoxCollider>().enabled = true;
 		}
 	}
 
 void Dodge()
 	{
 		dodgeing = true;
-		gameObject.GetComponent<BoxCollider>().enabled = false;
+		
 		Invoke("UnDodge", dodgeTime);
 	}
 void UnDodge()

@@ -5814,6 +5814,21 @@ Prefab:
       propertyPath: near clip plane
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 23679038279920354, guid: fbbc194b776a7c845822d1fe676ca5a2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23431369991479096, guid: fbbc194b776a7c845822d1fe676ca5a2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063764968111974, guid: fbbc194b776a7c845822d1fe676ca5a2,
+        type: 2}
+      propertyPath: iFrameTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbbc194b776a7c845822d1fe676ca5a2, type: 2}
   m_IsPrefabParent: 0
