@@ -39,4 +39,8 @@ public class sampleChunk : MonoBehaviour {
 	{
 		return allChunks.Length;
 	}
+	public Transform GetCurrentEnd()
+	{
+		return allChunks[chunkNumber].GetComponent<chunk>().GetEnd();
+	}
 }
