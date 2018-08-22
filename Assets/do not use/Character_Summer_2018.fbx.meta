@@ -312,8 +312,8 @@ ModelImporter:
     - serializedVersion: 16
       name: float
       takeName: Take 001
-      firstFrame: 54
-      lastFrame: 98
+      firstFrame: 105
+      lastFrame: 122
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
