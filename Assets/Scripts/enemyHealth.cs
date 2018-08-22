@@ -11,7 +11,6 @@ public class enemyHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
-		activated = false;
 	}
 	
 	// Update is called once per frame

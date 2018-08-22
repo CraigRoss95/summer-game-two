@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class playerHealth : MonoBehaviour {
 public int maxHealth;
 public int currHealth;
+private bool invinsable;
+public float iFrameTime;
 	// Use this for initialization
 	void Start () {
+		invinsable = false;
 		currHealth = maxHealth;
 	}
 	
@@ -23,6 +26,18 @@ public int currHealth;
 	}
 	public void TakeDamage(int damage)
 	{
-		currHealth = currHealth - damage;
+
+			currHealth = currHealth - damage;
+			invinsable = true;
+			Invoke("RemoveIFrames", iFrameTime);
+	}
+
+	public bool GetInvinsable()
+	{
+		return invinsable;
+	}
+	void RemoveIFrames()
+	{
+		invinsable = false;
 	}
 }

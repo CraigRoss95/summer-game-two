@@ -44,7 +44,6 @@ public class shooter : MonoBehaviour {
 				transform.LookAt(player.transform);
 				if (onCooldown == false)
 				{
-					Debug.Log("egg");
 					clone = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
 					
 					clone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);

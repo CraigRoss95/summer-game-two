@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerControler : MonoBehaviour {
-	
+	public GameObject bottemPlate;
 	public Animator playerAnimations;
 	public Transform screenOffset;
 	public float velocity;
@@ -13,6 +13,7 @@ public class playerControler : MonoBehaviour {
 	public Transform cam;
 	private RaycastHit hit;
 	public LayerMask screen;
+	public LayerMask ground;
 	private Vector3 cursor;
 	private bool isGrounded;
 	public float height;
@@ -25,19 +26,38 @@ public class playerControler : MonoBehaviour {
 	public float maxSpeed;
 	public float minSpeed;
 	public bool diagonal;
+	private bool jumping;
+	private bool falling;
+	public float jumpingTime;
+	public float jumpSpeed;
+	private float tempJumpSpeed;
+	public float jumpingDecayRate;
+	private bool flying;
+	public GameObject frontPlate;
+	public GameObject backPlate;
+	public GameObject topPlate;
+	
 
 	
 
 	void Start()
 	{
 		isGrounded = false;
+		jumping = false;
+		falling = false;
+		tempJumpSpeed = 0;
+		falling = true;
+		flying = false;
 	}
 	
-	void LateUpdate()
+	void Update()
 	{	
 		FindIsGrounded();
 		GetInput();
+		Jump();
 		Move();
+		StartFlight();
+		Push();
 	}
 	public bool GetIsGrounded()
 	{
@@ -45,21 +65,26 @@ public class playerControler : MonoBehaviour {
 	}
 	void FindIsGrounded()
 	{
-		if(Physics.Raycast(gameObject.transform.position,Vector3.down,out hit,height/2.0f + 0.1f))
+		if(bottemPlate.GetComponent<touchingGround>().GetTouching() == true)
 		{
-			if (hit.transform.tag == "ground")
-			{
-				isGrounded = true;
-				playerAnimations.Play("running");
-				if(hit.distance < height/2.0f)
-					{
-						gameObject.transform.Translate(Vector3.up * 0.1f);
-					}
-			}
+			tempJumpSpeed = 5.0f;
+	
+			flying = false;	
+			isGrounded = true;
+			CancelInvoke("SetFalling");
+			playerAnimations.Play("running");
 		}
 		else
 		{
-			playerAnimations.Play("floating");
+			if(jumping == false && falling == false)
+			{
+				playerAnimations.Play("floating");
+			}
+			if(flying == false)
+			{
+				falling = true;
+			}
+			
 			isGrounded = false;
 		}
 		Debug.Log("is grounded = " + isGrounded);
@@ -78,7 +103,11 @@ public class playerControler : MonoBehaviour {
 	{
 		if((transform.localPosition.x >= -minAndMaxX || input.x > 0) && (transform.localPosition.x <= minAndMaxX || input.x < 0))
 		{
-			transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);
+			if (frontPlate.GetComponent<touchingGround>().GetTouching() == false && backPlate.GetComponent<touchingGround>().GetTouching() == false)
+			{
+				transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);
+			}
+			
 		}
 		if(((transform.localPosition.y >= -minAndMaxY   && isGrounded == false) || input.y > 0) && (transform.localPosition.y <= minAndMaxY || input.y < 0))
 		{
@@ -96,8 +125,113 @@ public class playerControler : MonoBehaviour {
 		{
 			diagonal = false;
 		}
-		Debug.Log("velocity = " + velocity);
+	//	Debug.Log("velocity = " + velocity);
 		
 	}
 	// finds which way is forward
+	void Jump()
+	{
+		if (Input.GetButtonDown("jump") && flying == true)
+		{
+			flying = false;
+			jumpSpeed = 5.0f;
+		}
+		//Debug.Log ("tempjumpspeed = " + tempJumpSpeed);
+		if(Input.GetButtonDown("jump") && isGrounded == true)
+		{	
+			
+			tempJumpSpeed = jumpSpeed;
+		//	Debug.Log("you jumped");
+			jumping = true;
+			Invoke("SetFalling", jumpingTime);
+			
+		}
+		if (jumping == true)
+		{
+			if (Input.GetButton("jump"))
+			{ 
+			transform.localPosition = transform.localPosition + (new Vector3(0,1.0f,0) * tempJumpSpeed * Time.deltaTime);
+			tempJumpSpeed = tempJumpSpeed - Time.deltaTime * jumpingDecayRate;
+			tempJumpSpeed = Mathf.Clamp(tempJumpSpeed,0,jumpSpeed);
+			}
+			else
+			{
+				if (jumping == true)
+				{
+					tempJumpSpeed = 5.0f;
+					jumping = false;
+					falling = true;	
+				}
+				
+			}
+		}
+		if (falling == true && flying == false && jumping == false)
+		{
+			if(isGrounded == false)
+			{
+			transform.localPosition = transform.localPosition + (new Vector3(0,-1.0f,0) * tempJumpSpeed * Time.deltaTime);
+			tempJumpSpeed = tempJumpSpeed + Time.deltaTime * jumpingDecayRate;
+			tempJumpSpeed = Mathf.Clamp(tempJumpSpeed,0,jumpSpeed);
+			}
+			else
+			{
+				falling = false;
+			}
+		}
+		
+
+	}
+
+	void SetFalling()
+	{
+		jumping = false;
+		falling = true;
+		tempJumpSpeed = 5.0f;
+	}
+	
+	void StartFlight()
+	{
+		if (Input.GetAxisRaw("Vertical") != 0 )
+		{
+			flying = true;
+			falling = false;
+			jumping = false;
+			CancelInvoke("SetFalling");
+		}
+		
+	}
+	public bool notFlying()
+	{
+		if (jumping == true || falling == true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	void Push()
+	{
+		if (Physics.Raycast(gameObject.transform.position,Vector3.down,out hit,height/2.0f + 0.1f, ground))
+			{
+				if(hit.distance < height/2.0f)
+					{
+						falling = false;
+						gameObject.transform.Translate(Vector3.up * 0.1f);
+					}
+			}
+		if ( frontPlate.GetComponent<touchingGround>().GetTouching() == true)
+		{
+			gameObject.transform.Translate(Vector3.left* 0.2f);
+		}
+		if ( backPlate.GetComponent<touchingGround>().GetTouching() == true)
+		{
+			gameObject.transform.Translate(Vector3.right* 0.2f);
+		}
+		if ( topPlate.GetComponent<touchingGround>().GetTouching() == true)
+		{
+			gameObject.transform.Translate(Vector3.down* 0.2f);
+		}
+	}
 }
