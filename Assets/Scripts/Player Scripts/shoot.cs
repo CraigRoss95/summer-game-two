@@ -20,6 +20,9 @@ public class shoot : MonoBehaviour {
 	public LayerMask screenLayerMask;
 	private Vector3 cursor;
 	public float acuracyDebuff;
+	public AudioSource audioSource;
+	public AudioClip[] shootSounds;
+
 
 	
 
@@ -60,6 +63,7 @@ public class shoot : MonoBehaviour {
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y,0);
 		if(onCooldown == false && Input.GetButton("Fire1"))
 		{
+			audioSource.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)], 2.0f);
 			float rand = Random.Range((-1 * acuracyDebuff), acuracyDebuff)/ 100.0f;
 			clone = Instantiate(projectile, emitter.transform.position + new Vector3(0,rand,0), emitter.transform.rotation);
 			clone.GetComponent<Rigidbody>().AddForce((transform.forward * speed));

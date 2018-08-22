@@ -48,14 +48,14 @@ private bool animated;
 				playerModel.SetActive(true);
 				visable = true;
 				Invoke("Flash", 0.2f);
-				Debug.Log("Fric");
+				//Debug.Log("Fric");
 			}
 			else
 			{
 				playerModel.SetActive(false);
 				visable = false;
 				Invoke("Flash", 0.2f);
-				Debug.Log("hec");
+				//Debug.Log("hec");
 			}
 		}
 		
