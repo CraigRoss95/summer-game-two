@@ -11,8 +11,11 @@ public float cooldownTime;
 public GameObject playerModel;
 public Material dodgeingTexture;
 private Material notDodgeingTexture;
+public GameObject animationTarget;
+private Animator animator;
 	// Use this for initialization
 	void Start () {
+		animator = animationTarget.GetComponent<Animator>();
 		onCooldown = false;
 		dodgeing = false;
 		notDodgeingTexture = playerModel.GetComponent<Renderer>().material;
@@ -22,7 +25,7 @@ private Material notDodgeingTexture;
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown("dodge") && onCooldown == false && dodgeing == false && gameObject.GetComponent<playerHealth>().GetInvinsable() == false)
-		{
+		{	animator.Play("dodge");
 			Dodge();
 		}
 		if(dodgeing == false)
@@ -57,6 +60,12 @@ void UnDodge()
 		Invoke ("Cooldown", cooldownTime);
 
 	}
+
+public bool GetIsDodgeing()
+	{
+		return dodgeing;
+	}
+	
 void Cooldown()
 {
 	onCooldown = false;

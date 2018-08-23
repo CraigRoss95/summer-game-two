@@ -36,12 +36,37 @@ public class playerControler : MonoBehaviour {
 	public GameObject frontPlate;
 	public GameObject backPlate;
 	public GameObject topPlate;
+	private float dodgeMoveSpeed;
+	public float dodgeMoveSpeedFactor;
+	private float originalVelocity;
+	public GameObject hitBox;
+	private Vector2 rawInput;
 	
 
-	
+	void DodgeSpeed()
+	{
+		if(hitBox.GetComponent<dodge>().GetIsDodgeing() == true)
+		{
+			velocity = dodgeMoveSpeed;
+			if (rawInput == new Vector2(0,0))
+			{
+				input = new Vector2(1,0);
+			}
+		}
+		else
+		{
+			velocity = originalVelocity;
+		}
+
+		
+		
+	}
 
 	void Start()
 	{
+		
+		dodgeMoveSpeed = velocity * dodgeMoveSpeedFactor;
+		originalVelocity = velocity;
 		isGrounded = false;
 		jumping = false;
 		falling = false;
@@ -51,7 +76,9 @@ public class playerControler : MonoBehaviour {
 	}
 	
 	void Update()
-	{	
+	{
+		DodgyMovement();
+		DodgeSpeed();
 		FindIsGrounded();
 		GetInput();
 		Jump();
@@ -92,8 +119,15 @@ public class playerControler : MonoBehaviour {
 	//sets input for every update
 	void GetInput()
 	{
-		input.x = Input.GetAxisRaw("Horizontal");
-		input.y = Input.GetAxisRaw("Vertical");
+		rawInput.x = Input.GetAxisRaw("Horizontal");
+		rawInput.y = Input.GetAxisRaw("Vertical");
+	}
+	void DodgyMovement()
+	{
+		if (hitBox.GetComponent<dodge>().GetIsDodgeing() == false)
+		{
+			input = rawInput;
+		}
 	}
 
 	// get the direction the player is going in relation to the camera
@@ -115,7 +149,7 @@ public class playerControler : MonoBehaviour {
 		}
 
 		
-		velocity = Mathf.Clamp(velocity,minSpeed,maxSpeed);
+		
 		if(input.x != 0 && input.y != 0 && diagonal == false)
 		{
 			diagonal = true;

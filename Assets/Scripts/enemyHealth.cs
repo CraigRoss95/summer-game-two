@@ -8,6 +8,9 @@ public class enemyHealth : MonoBehaviour {
 	public bool activated;
 	public int health;
 	public int maxHealth;
+	public AudioSource audioSource;
+	public AudioClip Death;
+
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
@@ -17,6 +20,7 @@ public class enemyHealth : MonoBehaviour {
 	void Update () {
 		if (health <= 0)
 		{
+			AudioSource deathsound = Instantiate(audioSource,gameObject.transform.position,gameObject.transform.rotation);
 			Destroy(gameObject);
 		}
 		

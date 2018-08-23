@@ -22,6 +22,8 @@ public class shoot : MonoBehaviour {
 	public float acuracyDebuff;
 	public AudioSource audioSource;
 	public AudioClip[] shootSounds;
+	public float rotationSpeed;
+	private float currentCursorRotation;
 
 
 	
@@ -30,6 +32,7 @@ public class shoot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		currentCursorRotation = 0;
 
 	}
 	
@@ -45,13 +48,16 @@ public class shoot : MonoBehaviour {
 			targeterTwo.transform.position = myCanvas.transform.TransformPoint(pos);
 			
 			if(hit.transform.tag == "enemy")
-			{
+			{	targeter.transform.Rotate(Vector3.forward * rotationSpeed * 2);
+				targeterTwo.transform.Rotate(Vector3.forward * rotationSpeed * 2);
 				targeter.SetActive(false);
 				targeterTwo.SetActive(true);
 				//Debug.Log("enemy? =  true");
 			}
 			else
 			{
+				targeterTwo.transform.Rotate(Vector3.forward * rotationSpeed);
+				targeter.transform.Rotate(Vector3.forward * rotationSpeed);
 				targeter.SetActive(true);
 				targeterTwo.SetActive(false);
 				//Debug.Log("enemy? =  false");
