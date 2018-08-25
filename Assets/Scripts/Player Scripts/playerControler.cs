@@ -99,14 +99,9 @@ public class playerControler : MonoBehaviour {
 			flying = false;	
 			isGrounded = true;
 			CancelInvoke("SetFalling");
-			playerAnimations.Play("running");
 		}
 		else
 		{
-			if(jumping == false && falling == false)
-			{
-				playerAnimations.Play("floating");
-			}
 			if(flying == false)
 			{
 				falling = true;
