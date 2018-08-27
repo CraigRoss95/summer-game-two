@@ -5,6 +5,7 @@ using UnityEngine;
 public class animatePlayer : MonoBehaviour {
 
 	private Animator animator;
+	private bool flying;
 	private bool grounded;
 	public GameObject movementBox;
 
@@ -15,13 +16,14 @@ public class animatePlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		flying = movementBox.GetComponent<playerControler>().GetFlying();
 		grounded = movementBox.GetComponent<playerControler>().GetIsGrounded();
-		if (grounded == true)
+		if (grounded == false || flying == true)
 		{
-			animator.SetBool("grounded", true);
+			animator.SetBool("grounded", false);
 		}
 		else{
-			animator.SetBool("grounded", false);
+			animator.SetBool("grounded", true);
 		}
 
 		

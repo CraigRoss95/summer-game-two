@@ -42,7 +42,8 @@ private float chunksLenght;
 
 
 		if(chunks[nextChunkIndex].transform.position.x - movingScreen.transform.position.x < -50)
-		{	Debug.Log(" "+ nextChunkIndex);
+		{	
+			//Debug.Log(" "+ nextChunkIndex);
 			float otherLenght = 0;
 		for(int i = 0; i < chunks.Length; i++)
 		{
