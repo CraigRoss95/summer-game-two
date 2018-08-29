@@ -10,10 +10,14 @@ public class enemyHealth : MonoBehaviour {
 	public int maxHealth;
 	public AudioSource audioSource;
 	public AudioClip Death;
+	public bool isBossPart;
+	public GameObject boss;
+
 
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
+		activated = false;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +34,14 @@ public class enemyHealth : MonoBehaviour {
 	{
 		if(activated == true)
 		{
-			health = health - damage;
+			if(isBossPart == true)
+			{
+				boss.GetComponent<enemyHealth>().TakeDamage(damage);
+			}
+			else{
+				health = health - damage;
+			}
+			
 		}
 		
 	}
@@ -45,5 +56,9 @@ public class enemyHealth : MonoBehaviour {
 	public bool GetActivated()
 	{
 		return activated;
+	}
+	public int GetMaxHealth()
+	{
+		return maxHealth;
 	}
 }

@@ -71,7 +71,7 @@ public class shoot : MonoBehaviour {
 		{
 			audioSource.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)], 2.0f);
 			float rand = Random.Range((-1 * acuracyDebuff), acuracyDebuff)/ 100.0f;
-			clone = Instantiate(projectile, emitter.transform.position + new Vector3(0,rand,0), emitter.transform.rotation);
+			clone = Instantiate(projectile, emitter.transform.position + transform.up*rand, emitter.transform.rotation);
 			clone.GetComponent<Rigidbody>().AddForce((transform.forward * speed));
 			clone.transform.parent = screen.transform;
 			onCooldown = true;

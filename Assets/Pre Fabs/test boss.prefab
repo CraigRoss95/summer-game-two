@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100161952327678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 63.9, y: 1.7, z: 0.14}
+  m_LocalPosition: {x: 35.7, y: 24.6, z: 0.14}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,6 +120,8 @@ MonoBehaviour:
   audioSource: {fileID: 82252054232435048, guid: 633947aa62d8c6243ba43860eedc3967,
     type: 2}
   Death: {fileID: 8300000, guid: cfa9c44dce1662f439260b9016b2fa3a, type: 3}
+  isBossPart: 0
+  boss: {fileID: 0}
 --- !u!114 &114765376762631270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,8 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2ffdfd796ba19428fdfc35ad67e7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHP: {fileID: 0}
-  HPText: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!135 &135716442097217218
 SphereCollider:
   m_ObjectHideFlags: 1

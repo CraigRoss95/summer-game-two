@@ -35,7 +35,7 @@ public class shooter : MonoBehaviour {
 		{
 			if(inPosition == false)
 			{
-				transform.Translate(Vector3.left * (distance/time) * Time.deltaTime);
+				transform.Translate(Vector3.forward * (distance/time) * Time.deltaTime);
 				Invoke("PutInPosition", time);
 			}
 			else
