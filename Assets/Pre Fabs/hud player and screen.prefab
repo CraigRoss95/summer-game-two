@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 114951380179241570}
   - component: {fileID: 114343798283949858}
   - component: {fileID: 212723552052407926}
+  - component: {fileID: 114106885113980264}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5011,7 +5012,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &64017297342673468
 MeshCollider:
@@ -5442,6 +5443,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &114106885113980264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346058701398124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d1716fb4190b444b30f0755e8a237a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHP: {fileID: 114786112992989238}
+  HPText: {fileID: 114726591680679604}
+  currentBoss: {fileID: 0}
 --- !u!114 &114115395525109850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5837,7 +5852,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 8192
-  height: 2
+  height: 0.48
   myCanvas: {fileID: 0}
   speedUpFactor: 10
   SlowDownFactor: 5

@@ -113,12 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &47643373 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114726591680679604, guid: ad11c7fe64bf91c4395ef430f71bb274,
-    type: 2}
-  m_PrefabInternal: {fileID: 119343045}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &93230352 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4074887219973076, guid: 0d07f4634707e394e8159af6b5a63a1d,
@@ -257,16 +251,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224154199335685300, guid: ad11c7fe64bf91c4395ef430f71bb274,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54457678661222776, guid: ad11c7fe64bf91c4395ef430f71bb274,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad11c7fe64bf91c4395ef430f71bb274, type: 2}
@@ -1328,25 +1312,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 579922952}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &590687926 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1346058701398124, guid: ad11c7fe64bf91c4395ef430f71bb274,
-    type: 2}
-  m_PrefabInternal: {fileID: 119343045}
---- !u!114 &590687931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 590687926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69d1716fb4190b444b30f0755e8a237a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossHP: {fileID: 1081707968}
-  HPText: {fileID: 47643373}
-  currentBoss: {fileID: 0}
 --- !u!1 &616719925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,12 +2404,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064137298}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1081707968 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114786112992989238, guid: ad11c7fe64bf91c4395ef430f71bb274,
-    type: 2}
-  m_PrefabInternal: {fileID: 119343045}
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1122540043
 GameObject:
   m_ObjectHideFlags: 0

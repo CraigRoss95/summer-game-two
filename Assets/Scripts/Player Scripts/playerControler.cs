@@ -37,6 +37,13 @@ public class playerControler : MonoBehaviour {
 	private float currentJumpTime;
 	
 
+	void Ground()
+	{
+		if(Physics.Raycast(gameObject.transform.position,Vector3.down,height,ground) && flying == true)
+		{
+			flying = false;
+		}
+	}
 	void DodgeSpeed()
 	{
 		if(hitBox.GetComponent<dodge>().GetIsDodgeing() == true)
@@ -59,6 +66,10 @@ public class playerControler : MonoBehaviour {
 		{
 			input = rawInput;
 		}
+		else{
+			Debug.Log("dodge" + input.x);
+		}
+		
 	}
 	void Start()
 	{
@@ -71,6 +82,7 @@ public class playerControler : MonoBehaviour {
 	
 	void Update()
 	{
+		Ground();
 		DodgyMovement();
 		DodgeSpeed();
 		FindIsGrounded();
@@ -141,7 +153,7 @@ public class playerControler : MonoBehaviour {
 	{
 		if((transform.localPosition.x >= -minAndMaxX || input.x > 0) && (transform.localPosition.x <= minAndMaxX || input.x < 0))
 		{
-				transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);	
+				transform.localPosition = transform.localPosition + (new Vector3(rawInput.x,0,0) * velocity * Time.deltaTime);	
 		}
 		if (jumping == false)
 		{
