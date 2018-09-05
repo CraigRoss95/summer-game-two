@@ -12,11 +12,13 @@ public float swordOutTime;
 public float cooldownTime;
 public AudioSource audioSource;
 public AudioClip swordSound;
+public GameObject slashSprite;
 
 	// Use this for initialization
 	void Start () {
 		onCooldown = false;
 		meleeing = false;
+		slashSprite.GetComponent<SpriteRenderer>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -38,12 +40,15 @@ public AudioClip swordSound;
 		{
 			audioSource.PlayOneShot(swordSound);
 			meleeing = true;
+			slashSprite.GetComponent<SpriteRenderer>().enabled = true;
+			slashSprite.GetComponent<Animator>().StartPlayback();
 			Invoke("SwordOutInvoke", swordOutTime);
 		}
 		
 	}
 	void SwordOutInvoke()
 	{
+		slashSprite.GetComponent<SpriteRenderer>().enabled = false;
 		meleeing = false;
 		onCooldown = true;
 		Invoke("TakeOffCooldown", cooldownTime);
