@@ -7,7 +7,7 @@ public class spawnRandomObject : MonoBehaviour {
 	public float maxTime;
 	public float minTime;
 
-	public GameObject thing;
+	public GameObject[] thing;
 	public float maxup;
 	public float maxdown;
 	// Use this for initialization
@@ -21,7 +21,8 @@ public class spawnRandomObject : MonoBehaviour {
 	}
 	void SpawnThing()
 	{
-		Instantiate(thing,transform.position +new Vector3(0,Random.Range(maxdown,maxup),0),transform.rotation);
+
+		Instantiate(thing[Random.Range(0,thing.Length)],transform.position +new Vector3(0,Random.Range(maxdown,maxup),0),transform.rotation);
 		Invoke("SpawnThing", Random.Range(minTime,maxTime));
 	}
 }

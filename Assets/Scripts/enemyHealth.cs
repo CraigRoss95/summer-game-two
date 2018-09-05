@@ -12,10 +12,13 @@ public class enemyHealth : MonoBehaviour {
 	public AudioClip Death;
 	public bool isBossPart;
 	public GameObject boss;
+	public int points;
+	private GameObject player;
 
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find("player");
 		health = maxHealth;
 		activated = false;
 	}
@@ -24,6 +27,7 @@ public class enemyHealth : MonoBehaviour {
 	void Update () {
 		if (health <= 0)
 		{
+			player.GetComponent<score>().AddScore(points);
 			AudioSource deathsound = Instantiate(audioSource,gameObject.transform.position,gameObject.transform.rotation);
 			Destroy(gameObject);
 		}

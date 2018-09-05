@@ -4,38 +4,22 @@ using UnityEngine;
 
 public class playerControler : MonoBehaviour {
 	public GameObject bottemPlate;
-	public Transform screenOffset;
+
 	public float velocity;
 	public float minAndMaxX;
 	public float minAndMaxY;
 	private Vector2 input;
-	public Transform cam;
-	private RaycastHit hit;
-	public LayerMask screen;
 	public LayerMask ground;
-	private Vector3 cursor;
 	private bool isGrounded;
 	public float height;
-	private Vector2 pos;
-	public Canvas myCanvas;
-	public float speedUpFactor;
-	public float SlowDownFactor;
-	public float maxSpeed;
-	public float minSpeed;
-	public bool diagonal;
 
 	private bool flying;
-	private float dodgeMoveSpeed;
-	public float dodgeMoveSpeedFactor;
-	private float originalVelocity;
-	public GameObject hitBox;
 	private Vector2 rawInput;
 	private bool jumping;
 	public float extraGravity;
 	public float jumpingFource;
 	public float maxJumpTime;
 	private float currentJumpTime;
-	
 
 	void Ground()
 	{
@@ -44,47 +28,10 @@ public class playerControler : MonoBehaviour {
 			flying = false;
 		}
 	}
-	void DodgeSpeed()
-	{
-		if(hitBox.GetComponent<dodge>().GetIsDodgeing() == true)
-		{
-			velocity = dodgeMoveSpeed;
-			if (rawInput == new Vector2(0,0))
-			{
-				input = new Vector2(1,0);
-			}
-		}
-		else
-		{
-			velocity = originalVelocity;
-		}	
-	}
-
-	void DodgyMovement()
-	{
-		if (hitBox.GetComponent<dodge>().GetIsDodgeing() == false)
-		{
-			input = rawInput;
-		}
-		else{
-			Debug.Log("dodge" + input.x);
-		}
-		
-	}
-	void Start()
-	{
-		jumping = false;
-		dodgeMoveSpeed = velocity * dodgeMoveSpeedFactor;
-		originalVelocity = velocity;
-		isGrounded = false;
-		flying = true;
-	}
 	
 	void Update()
 	{
 		Ground();
-		DodgyMovement();
-		DodgeSpeed();
 		FindIsGrounded();
 		GetInput();
 		Jump();
@@ -123,8 +70,8 @@ public class playerControler : MonoBehaviour {
 	//sets input for every update
 	void GetInput()
 	{
-		rawInput.x = Input.GetAxisRaw("Horizontal");
-		rawInput.y = Input.GetAxisRaw("Vertical");
+		input.x = Input.GetAxisRaw("Horizontal");
+		input.y = Input.GetAxisRaw("Vertical");
 	}
 
 
