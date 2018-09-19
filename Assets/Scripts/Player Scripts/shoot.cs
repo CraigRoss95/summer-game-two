@@ -38,6 +38,7 @@ public class shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray, out hit, 100, screenLayerMask))
 		{
@@ -62,11 +63,11 @@ public class shoot : MonoBehaviour {
 				targeterTwo.SetActive(false);
 				//Debug.Log("enemy? =  false");
 			}
-
+			
 		//Debug.Log("log " + 	Vector3.Distance(hit.point, transform.position));
 		}
 		transform.LookAt(cursor);
-		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y,0);
+
 		if(onCooldown == false && Input.GetButton("Fire1"))
 		{
 			audioSource.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)], 2.0f);

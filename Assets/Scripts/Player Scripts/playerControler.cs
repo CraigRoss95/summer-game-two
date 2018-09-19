@@ -21,17 +21,9 @@ public class playerControler : MonoBehaviour {
 	public float maxJumpTime;
 	private float currentJumpTime;
 
-	void Ground()
-	{
-		if(Physics.Raycast(gameObject.transform.position,Vector3.down,height,ground) && flying == true)
-		{
-			flying = false;
-		}
-	}
 	
 	void Update()
 	{
-		Ground();
 		FindIsGrounded();
 		GetInput();
 		Jump();
@@ -100,13 +92,13 @@ public class playerControler : MonoBehaviour {
 	{
 		if((transform.localPosition.x >= -minAndMaxX || input.x > 0) && (transform.localPosition.x <= minAndMaxX || input.x < 0))
 		{
-				transform.localPosition = transform.localPosition + (new Vector3(rawInput.x,0,0) * velocity * Time.deltaTime);	
+				transform.localPosition = transform.localPosition + (new Vector3(input.x,0,0) * velocity * Time.deltaTime);	
 		}
 		if (jumping == false)
 		{
 			gameObject.GetComponent<Rigidbody>().useGravity = true;
 		}
-		if(flying == false && Input.GetButtonDown("Vertical"))
+		if(Input.GetButtonDown("Vertical"))
 		{
 			gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
