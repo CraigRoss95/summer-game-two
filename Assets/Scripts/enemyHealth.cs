@@ -19,7 +19,6 @@ public class enemyHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("player");
-		health = maxHealth;
 		activated = false;
 	}
 	
@@ -27,7 +26,7 @@ public class enemyHealth : MonoBehaviour {
 	void Update () {
 		if (health <= 0)
 		{
-			player.GetComponent<score>().AddScore(points);
+			//player.GetComponent<score>().AddScore(points);
 			AudioSource deathsound = Instantiate(audioSource,gameObject.transform.position,gameObject.transform.rotation);
 			Destroy(gameObject);
 		}
