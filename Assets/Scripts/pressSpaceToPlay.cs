@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class pressSpaceToPlay : MonoBehaviour {
+	public string startSceneName;
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +15,12 @@ public class pressSpaceToPlay : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey("space"))
 		{
-			SceneManager.LoadScene("testLv");
+			SceneManager.LoadScene(startSceneName);
 
 		}
+	}
+	public void StartScene()
+	{
+		SceneManager.LoadScene(startSceneName);
 	}
 }
