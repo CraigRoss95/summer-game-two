@@ -135,6 +135,9 @@ MonoBehaviour:
   audioSource: {fileID: 82252054232435048, guid: 633947aa62d8c6243ba43860eedc3967,
     type: 2}
   Death: {fileID: 8300000, guid: cfa9c44dce1662f439260b9016b2fa3a, type: 3}
+  isBossPart: 0
+  boss: {fileID: 0}
+  points: 100
 --- !u!135 &135807775686099996
 SphereCollider:
   m_ObjectHideFlags: 1
