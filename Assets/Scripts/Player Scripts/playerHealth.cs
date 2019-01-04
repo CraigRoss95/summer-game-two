@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour {
 public int maxHealth;
@@ -10,7 +9,6 @@ public int currHealth;
 private bool invinsable;
 public float iFrameTime;
 public GameObject playerModel;
-public Text HPText;
 private bool visable;
 private bool animated;
 
@@ -24,7 +22,7 @@ private bool animated;
 	// Update is called once per frame
 	void Update () 
 	{
-		HPText.text = "HP: " + currHealth.ToString();
+		
 		if (currHealth <= 0)
 		{
 			gameObject.transform.parent.gameObject.SetActive(false);
