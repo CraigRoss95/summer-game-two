@@ -115,8 +115,11 @@ NavMeshSettings:
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &2209157
 =======
+=======
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 --- !u!1 &380879422
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +195,14 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 4
+<<<<<<< HEAD
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 224078421449817846, guid: 9d91b73a9648a46409799a163cd473e1,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
       objectReference: {fileID: 0}
     - target: {fileID: 224078421449817846, guid: 9d91b73a9648a46409799a163cd473e1,
         type: 2}
@@ -251,6 +262,7 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: fb0fc269003af974a96c22123cc6bea7, type: 2}
   m_IsPrefabParent: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &9559588
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +293,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71936888
 =======
+=======
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 --- !u!1 &609303935
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 GameObject:
@@ -305,7 +319,11 @@ Transform:
   m_GameObject: {fileID: 71936888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalPosition: {x: -72.5, y: -6.6, z: -0}
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 =======
   m_LocalPosition: {x: -72.5, y: -6.6, z: -0}
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
@@ -2167,11 +2185,40 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5000002, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 2016977201}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1281121078
+=======
+  m_Children:
+  - {fileID: 1764945632}
+  - {fileID: 1180257335}
+  m_Father: {fileID: 609303936}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660680044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660680042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302c6cdfe95fd2542b3a418e009fa4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allChunks:
+  - {fileID: 1764945631}
+  - {fileID: 1180257333}
+  chunkNumber: 0
+--- !u!4 &713591445 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 461656, guid: 2675c9e23ef8ab54983704452b7eb793, type: 2}
+  m_PrefabInternal: {fileID: 741435384}
+--- !u!1001 &741435384
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2188,7 +2235,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452314, guid: 270471e1edb500e4f99877d8ea3e5279, type: 2}
       propertyPath: m_LocalPosition.z
+<<<<<<< HEAD
       value: 2.9
+=======
+      value: -5.9989
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
       objectReference: {fileID: 0}
     - target: {fileID: 452314, guid: 270471e1edb500e4f99877d8ea3e5279, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2220,7 +2271,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452314, guid: 270471e1edb500e4f99877d8ea3e5279, type: 2}
       propertyPath: m_LocalScale.z
+<<<<<<< HEAD
       value: 2.054859
+=======
+      value: 4.302447
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
       objectReference: {fileID: 0}
     - target: {fileID: 192062, guid: 270471e1edb500e4f99877d8ea3e5279, type: 2}
       propertyPath: m_Name
@@ -2229,6 +2284,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 270471e1edb500e4f99877d8ea3e5279, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!4 &1373432226 stripped
 Transform:
   m_PrefabParentObject: {fileID: 452314, guid: 270471e1edb500e4f99877d8ea3e5279, type: 2}
@@ -2288,12 +2344,35 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: 3779803d8affb994da10deee9fff242d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1508835449 stripped
+=======
+--- !u!1 &774774984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 774774985}
+  - component: {fileID: 774774989}
+  - component: {fileID: 774774988}
+  - component: {fileID: 774774987}
+  - component: {fileID: 774774986}
+  m_Layer: 13
+  m_Name: ground 1
+  m_TagString: ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774774985
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 Transform:
   m_PrefabParentObject: {fileID: 498830, guid: fb0fc269003af974a96c22123cc6bea7, type: 2}
   m_PrefabInternal: {fileID: 1929584086}
 --- !u!1001 &1629021877
 Prefab:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1714071435}
@@ -2356,6 +2435,33 @@ Prefab:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
+=======
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774774984}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.1233336, y: 2.8233333, z: -0.587626}
+  m_LocalScale: {x: 5, y: 0.33333334, z: 1.3333336}
+  m_Children:
+  - {fileID: 380879423}
+  - {fileID: 391576760}
+  m_Father: {fileID: 1180257335}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &774774986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774774984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9291124d978be984db02012dbb93b99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  end: {fileID: 380879423}
+  start: {fileID: 391576760}
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
   thisChunk: {fileID: 774774984}
 --- !u!65 &774774987
 BoxCollider:
@@ -2416,6 +2522,9 @@ Canvas:
   m_PrefabParentObject: {fileID: 223365489292164986, guid: 9d91b73a9648a46409799a163cd473e1,
     type: 2}
   m_PrefabInternal: {fileID: 431567738}
+<<<<<<< HEAD
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 --- !u!1001 &1143038482
 >>>>>>> de1cfd331acfcfc21b160a95e1be40afb80ad021
@@ -2470,6 +2579,7 @@ Prefab:
   m_IsPrefabParent: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1699094436
 =======
 --- !u!1 &1171209285 stripped
@@ -2482,12 +2592,16 @@ GameObject:
 =======
 --- !u!1 &1180257333
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
+--- !u!1 &1180257333
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - component: {fileID: 1699094437}
@@ -2499,10 +2613,15 @@ GameObject:
   m_Name: start
 >>>>>>> de1cfd331acfcfc21b160a95e1be40afb80ad021
 =======
+=======
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
   - component: {fileID: 1180257335}
   - component: {fileID: 1180257334}
   m_Layer: 0
   m_Name: chunkOne (1)
+<<<<<<< HEAD
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2511,11 +2630,14 @@ GameObject:
   m_IsActive: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!4 &1699094437
 =======
 --- !u!4 &1236617140
 >>>>>>> de1cfd331acfcfc21b160a95e1be40afb80ad021
 =======
+=======
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 --- !u!114 &1180257334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,11 +2653,15 @@ MonoBehaviour:
   start: {fileID: 391576760}
   thisChunk: {fileID: 1180257333}
 --- !u!4 &1180257335
+<<<<<<< HEAD
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1699094436}
@@ -2571,12 +2697,26 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236617139
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
+  m_GameObject: {fileID: 1180257333}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 4.5628815, y: -8.469999, z: 3.37}
+  m_LocalScale: {x: 3.000002, y: 3, z: 3.000002}
+  m_Children:
+  - {fileID: 774774985}
+  - {fileID: 417694074}
+  m_Father: {fileID: 660680043}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1236617139
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - component: {fileID: 1707394506}
@@ -2593,11 +2733,17 @@ GameObject:
   m_Layer: 13
   m_Name: start
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
+  - component: {fileID: 1236617140}
+  m_Layer: 13
+  m_Name: start
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!4 &1707394506
@@ -2607,10 +2753,14 @@ GameObject:
 =======
 --- !u!4 &1236617140
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
+--- !u!4 &1236617140
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1707394505}
@@ -2626,6 +2776,11 @@ Transform:
   m_GameObject: {fileID: 1243429259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.06, z: -0.21}
+=======
+  m_GameObject: {fileID: 1236617139}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5000002, y: 0, z: -0}
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 =======
   m_GameObject: {fileID: 1236617139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -2740,6 +2895,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1568655545486952, guid: 9d91b73a9648a46409799a163cd473e1,
     type: 2}
   m_PrefabInternal: {fileID: 431567738}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &1905643386
@@ -2950,6 +3106,8 @@ MonoBehaviour:
 >>>>>>> de1cfd331acfcfc21b160a95e1be40afb80ad021
 =======
 >>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
+=======
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 --- !u!1 &1958175245 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1792472008453618, guid: 9d91b73a9648a46409799a163cd473e1,
@@ -3017,6 +3175,7 @@ Prefab:
     - target: {fileID: 4214909886555566, guid: cc17d52a430599a49b6e591637bb8be2, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.2
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 4584655143150282, guid: cc17d52a430599a49b6e591637bb8be2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3037,10 +3196,13 @@ Prefab:
     - target: {fileID: 4654605020602904, guid: cc17d52a430599a49b6e591637bb8be2, type: 2}
       propertyPath: m_LocalPosition.z
       value: -1.42
+=======
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc17d52a430599a49b6e591637bb8be2, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!4 &1963277690 stripped
@@ -3068,6 +3230,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1981910580
 Transform:
+=======
+--- !u!1001 &1976545197
+Prefab:
+>>>>>>> parent of de1cfd3... random enemy spawning and health + score ui
 =======
 --- !u!1001 &1976545197
 Prefab:
